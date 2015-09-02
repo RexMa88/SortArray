@@ -16,12 +16,19 @@ int main(int argc, const char * argv[]) {
         NSArray *sortArray = [array sortedArrayUsingSelector:@selector(compare:)];
         //another method sort
         NSMutableArray *arrayOne = [[NSMutableArray alloc] initWithObjects:@"24",@"12",@"48",@"35",@"7",@"2",@"3",@"65", nil];
+        NSMutableArray *arrayTwo = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithInt:50],[NSNumber numberWithInt:23],[NSNumber numberWithInt:35],[NSNumber numberWithInt:3],[NSNumber numberWithInt:14],[NSNumber numberWithInt:20], nil];
         
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+        NSSortDescriptor *descSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO];
+        
         NSArray *sortArrayOne = [arrayOne sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+        NSArray *sortArrayTwo = [arrayTwo sortedArrayUsingDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
+        NSArray *sortArratThree = [arrayTwo sortedArrayUsingDescriptors:[NSArray arrayWithObjects:descSortDescriptor, nil]];
         
         NSLog(@"The sortArray is %@",sortArray);
         NSLog(@"Another sortArray is %@",sortArrayOne);
+        NSLog(@"The sort number Array is %@",sortArrayTwo);
+        NSLog(@"The Desc Array is %@",sortArratThree);
         
         NSLog(@"Hello, World!");
     }
